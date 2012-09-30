@@ -14,6 +14,10 @@ let mapleader=","
 " Auto source .vimrc when saved
 au! BufWritePost .vimrc source %
 
+"Powerline
+"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'compatible'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
 nnoremap ö ,
 " => VIM user interface
@@ -36,6 +40,9 @@ set hlsearch
 set incsearch
 
 set number
+
+set laststatus=2 "Always show the statusbar
+set t_Co=256 "256 colors
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
