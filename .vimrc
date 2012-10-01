@@ -49,7 +49,8 @@ set t_Co=256 "256 colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
-colorscheme molokai
+"colorscheme molokai
+colorscheme skittles_berry
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
