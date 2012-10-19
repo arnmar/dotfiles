@@ -106,6 +106,11 @@ nnoremap <silent> <leader>f :FufFile<CR>
 nnoremap <silent> <leader>t :FufCoverageFile<CR>
 
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" Diffs
+nnoremap <leader>< ]c
+nnoremap <leader>> [c
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Clang_complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

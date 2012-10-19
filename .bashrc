@@ -1,4 +1,18 @@
+export WIND_LX_HOME=/opt/WindRiver/
+export PATH=/opt/WindRiver/wrlinux-4/sysroots/hectronic_H60xx-glibc_small/x86-linux2:$PATH
+
 alias ll='ls -al'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias rmcov="find -iname '*.gcda' | xargs rm"
+alias fname="find -iname"
+alias fname="find -iname"
+
+
+# Alias to be able to run Lint through smb share from Appserver
+alias lint='wine c:ll/lint9/lint-nt.exe'
 
 #PS1='[\u@\h`__git_ps1` \W]\$ '
 
@@ -110,7 +124,7 @@ MyPS1=$BGreen$Username@$ShortHost$Color_Off'$(git branch &>/dev/null;\
         fi)'$Color_Off'|'$BWhite$PathShort$Color_Off'"; \
     else \
         # @2 - Prompt when not in GIT repo
-        echo " '$BBlue$PathShort$Color_Off'"; \
+        echo " '$BBlue$PathFull'"; \
     fi)'
 
-export PS1="[$MyPS1 \$] "
+export PS1="$MyPS1 \$$Color_Off "
