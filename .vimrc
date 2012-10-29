@@ -110,6 +110,10 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " Diffs
 nnoremap <leader>< ]c
 nnoremap <leader>> [c
+nnoremap <M-Down> ]c
+nnoremap <M-Up> [c
+nnoremap <M-Left> do
+nnoremap <M-Right> dp
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Clang_complete
@@ -172,3 +176,4 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
