@@ -1,0 +1,170 @@
+# Conky configuration
+ 
+# Set to yes if you want Conky to be forked in the background
+background no
+ 
+# Font size?
+xftfont DejaVu Sans:size=8
+ 
+# Use Xft?
+use_xft yes
+
+# Text alpha when using Xft
+xftalpha 0.9
+
+# Update interval in seconds
+update_interval 1.0
+ 
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+ 
+# Text alignment, other possible values are commented
+#alignment top_left
+#alignment top_right
+#alignment bottom_left
+alignment bottom_right
+#alignment none
+ 
+# Create own window instead of using desktop (required in nautilus)
+own_window no
+ 
+# If own_window is yes, you may use type normal, desktop or override
+own_window_type normal
+ 
+# Use pseudo transparency with own_window?
+own_window_transparent yes
+ 
+# If own_window_transparent is set to no, you can set the background colour here
+own_window_colour black
+ 
+# If own_window is yes, these w# Text alignment, other possible values are commented
+#alignment top_left
+#alignment top_right
+#alignment bottom_left
+alignment bottom_right
+#alignment none
+ 
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+ 
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+ 
+# Minimum size of text area
+minimum_size 200 5
+maximum_width 250
+ 
+draw_shades no
+draw_outline no
+draw_borders no
+ 
+# Draw borders around graphs
+draw_graph_borders yes
+ 
+# Default colors and also border colors
+default_color black
+default_shade_color grey
+default_outline_color green
+ 
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#alignment none
+ 
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 12
+gap_y 35
+ 
+# Subtract file system buffers from used memory?
+no_buffers no
+ 
+# set to yes if you want all text to be in uppercase
+uppercase no
+ 
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 1
+ 
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 1
+ 
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+ 
+# Loading lua script for drawning rings
+lua_load ~/.conky/seamod_rings.lua
+lua_draw_hook_post main
+
+TEXT
+${color sienna}SYSTEM: $nodename $machine ${hr 1}${color}
+Uptime: $alignr$uptime
+CPU: ${alignr}${freq} MHz
+Processes: ${alignr}$processes ($running_processes running)
+Load: ${alignr}$loadavg
+ 
+${if_existing /sys/devices/system/cpu/cpu0}CPU1 ${alignr}${cpu cpu1}%
+${cpubar cpu1 4}${endif}${if_existing /sys/devices/system/cpu/cpu1}
+CPU2 ${alignr}${cpu cpu2}%
+${cpubar cpu2 4}${endif}${if_existing /sys/devices/system/cpu/cpu2}
+CPU3 ${alignr}${cpu cpu3}%
+${cpubar cpu3 4}${endif}${if_existing /sys/devices/system/cpu/cpu3}
+CPU4 ${alignr}${cpu cpu4}%
+${cpubar cpu4 4}${endif}
+${cpugraph 20}
+ 
+Ram ${alignr}$mem / $memmax ($memperc%)
+${membar 4}
+Swap ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 4}
+ 
+Highest CPU $alignr CPU% MEM%
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+ 
+Highest MEM $alignr CPU% MEM%
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+ 
+${color sienna}FILESYSTEMS ${hr 1}${color}
+Root ${alignr}${fs_free /} / ${fs_size /}
+${fs_bar 4 /}${if_mounted /media/disk}
+#Disk1 ${alignr}${fs_free /media/disk} / ${fs_size /media/disk}
+#${fs_bar 4 /media/disk}${endif}${if_mounted /media/disk-1}
+#Disk2 ${alignr}${fs_free /media/disk-1} / ${fs_size /media/disk-1}
+#${fs_bar 4 /media/disk-1}${endif}${if_mounted /media/disk-2}
+#Disk3 ${alignr}${fs_free /media/disk-2} / ${fs_size /media/disk-2}
+#${fs_bar 4 /media/disk-2}${endif}${if_mounted /media/disk-3}
+#Disk4 ${alignr}${fs_free /media/disk-3} / ${fs_size /media/disk-3}
+#${fs_bar 4 /media/disk-3}${endif}${if_mounted /media/disk-4}
+#Disk5 ${alignr}${fs_free /media/disk-4} / ${fs_size /media/disk-4}
+#${fs_bar 4 /media/disk-4}${endif}
+ 
+${color sienna}NETWORK ${hr 1}${color}
+${if_existing /sys/class/net/enp0s3/operstate up}IP (enp0s3):$alignr${addr enp0s3}
+Down: ${downspeed enp0s3} k/s ${alignr}Up: ${upspeed enp0s3} k/s
+${downspeedgraph enp0s3 20,90} ${alignr}${upspeedgraph enp0s3 20,90}
+Total: ${totaldown enp0s3} ${alignr}Total: ${totalup enp0s3}
+ 
+#${endif}${if_existing /sys/class/net/wlan0/operstate up}IP (wlan0):$alignr${addr wlan0}
+#AP: ${wireless_essid wlan0} ${alignr}Bitrate: ${wireless_bitrate wlan0}
+#Down: ${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
+#${downspeedgraph wlan0 20,90} ${alignr}${upspeedgraph wlan0 20,90}
+#Total: ${totaldown wlan0} ${alignr}Tota: ${totalup wlan0}
+ 
+#${endif}${if_existing /sys/class/net/ppp0/operstate}IP (ppp0):$alignr${addr ppp0}
+#Down: ${downspeed ppp0} k/s ${alignr}Up: ${upspeed ppp0} k/s
+#${downspeedgraph ppp0 20,90} ${alignr}${upspeedgraph ppp0 20,90}
+#Total: ${totaldown ppp0} ${alignr}Total: ${totalup ppp0}${endif}
+${color sienna}PACKAGES ${hr 1}${color}
+${rss https://www.archlinux.org/feeds/packages/ 1 item_titles 5 }
+
+${color sienna}Nyheter ${hr 1}${color}
+${rss www.aftonbladet.se/rss.xml 1 item_titles 10 }
+
