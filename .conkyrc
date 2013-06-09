@@ -1,16 +1,16 @@
 # Conky configuration
  
 # Set to yes if you want Conky to be forked in the background
-background no
+background yes
  
 # Font size?
-xftfont DejaVu Sans:size=8
+font Sans:size=8
  
 # Use Xft?
 use_xft yes
 
 # Text alpha when using Xft
-xftalpha 0.9
+xftalpha 0.8
 
 # Update interval in seconds
 update_interval 1.0
