@@ -1,18 +1,18 @@
-export WIND_LX_HOME=/opt/WindRiver/
-export PATH=/opt/WindRiver/wrlinux-4/sysroots/hectronic_H60xx-glibc_small/x86-linux2:$PATH
+#
+# ~/.bashrc
+#
 
 alias ll='ls -al'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias mkdir='mkdir -p -v'
+alias lsd='du -a --max-depth 1 .* | sort -g'
 
 alias rmcov="find -iname '*.gcda' | xargs rm"
 alias fname="find -iname"
 alias fname="find -iname"
 
-
-# Alias to be able to run Lint through smb share from Appserver
-alias lint='wine c:ll/lint9/lint-nt.exe'
 
 #PS1='[\u@\h`__git_ps1` \W]\$ '
 
