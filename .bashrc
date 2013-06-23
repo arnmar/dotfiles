@@ -11,9 +11,8 @@ alias lsd='du -a --max-depth 1 .* | sort -g'
 
 alias rmcov="find -iname '*.gcda' | xargs rm"
 alias fname="find -iname"
-alias fname="find -iname"
 
-
+source /usr/share/git/completion/git-prompt.sh
 #PS1='[\u@\h`__git_ps1` \W]\$ '
 
 # Customize BASH PS1 prompt to show current GIT repository and branch.
