@@ -42,7 +42,9 @@ set incsearch
 set number
 
 set laststatus=2 "Always show the statusbar
-set t_Co=256 "256 colors
+if &term != 'linux'
+  set t_Co=256 "256 colors
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
