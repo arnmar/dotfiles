@@ -16,7 +16,8 @@ au! BufWritePost .vimrc source %
 
 "Powerline
 "let g:Powerline_symbols = 'fancy'
-let g:Powerline_symbols = 'compatible'
+"let g:Powerline_symbols = 'compatible'
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
 nnoremap ö ,
