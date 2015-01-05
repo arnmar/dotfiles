@@ -9,6 +9,9 @@ filetype indent on
 " Auto read when file is changed from the outside
 set autoread
 
+" Auto source vimrc when changed
+autocmd bufwritepost $MYVIMRC source $MYVIMRC 
+
 let mapleader=","
 
 " Auto source .vimrc when saved
@@ -19,6 +22,40 @@ au! BufWritePost .vimrc source %
 "let g:Powerline_symbols = 'compatible'
 let g:airline_powerline_fonts = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
+
+"[submodule ".vim/bundle/nerdtree"]
+"	path = .vim/bundle/nerdtree
+"	url = https://github.com/scrooloose/nerdtree.git
+"[submodule ".vim/bundle/clang_complete"]
+"	path = .vim/bundle/clang_complete
+"	url = https://github.com/Rip-Rip/clang_complete.git
+"[submodule ".vim/bundle/nerdcommenter"]
+"	path = .vim/bundle/nerdcommenter
+"	url = https://github.com/scrooloose/nerdcommenter.git
+"[submodule ".vim/bundle/FuzzyFinder"]
+"	path = .vim/bundle/FuzzyFinder
+"	url = https://github.com/vim-scripts/FuzzyFinder.git
+"[submodule ".vim/bundle/L9"]
+"	path = .vim/bundle/L9
+"	url = https://github.com/vim-scripts/L9.git
+"[submodule ".vim/bundle/vim-easymotion"]
+"	path = .vim/bundle/vim-easymotion
+"	url = https://github.com/Lokaltog/vim-easymotion.git
+"[submodule ".vim/bundle/fugitive"]
+"	path = .vim/bundle/fugitive
+"	url = https://github.com/tpope/vim-fugitive.git
+"[submodule ".vim/bundle/vim-airline"]
+"	path = .vim/bundle/vim-airline
+"	url = https://github.com/bling/vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
 nnoremap ö ,
 " => VIM user interface
@@ -52,8 +89,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
-"colorscheme molokai
-colorscheme skittles_berry
+colorscheme molokai
+"colorscheme skittles_berry
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,9 +189,6 @@ inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 
 noremap <silent> <C-Tab> :A<cr>
-
-" Pathogen
-call pathogen#infect()
 
 " C-vim leader
 let g:C_MapLeader=','
