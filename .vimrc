@@ -17,10 +17,10 @@ let mapleader=","
 " Auto source .vimrc when saved
 au! BufWritePost .vimrc source %
 
-"Powerline
-"let g:Powerline_symbols = 'fancy'
-"let g:Powerline_symbols = 'compatible'
+"Airline
 let g:airline_powerline_fonts = 1
+
+let g:ctrlp_show_hidden = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -29,32 +29,21 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Plugin 'flazz/vim-colorschemes'
+"Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'valloric/youcompleteme.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter.git'
 
 call vundle#end()
 
-"[submodule ".vim/bundle/nerdtree"]
-"	path = .vim/bundle/nerdtree
 "	url = https://github.com/scrooloose/nerdtree.git
-"[submodule ".vim/bundle/clang_complete"]
-"	path = .vim/bundle/clang_complete
 "	url = https://github.com/Rip-Rip/clang_complete.git
-"[submodule ".vim/bundle/nerdcommenter"]
-"	path = .vim/bundle/nerdcommenter
 "	url = https://github.com/scrooloose/nerdcommenter.git
-"[submodule ".vim/bundle/FuzzyFinder"]
-"	path = .vim/bundle/FuzzyFinder
 "	url = https://github.com/vim-scripts/FuzzyFinder.git
-"[submodule ".vim/bundle/L9"]
-"	path = .vim/bundle/L9
 "	url = https://github.com/vim-scripts/L9.git
-"[submodule ".vim/bundle/vim-easymotion"]
-"	path = .vim/bundle/vim-easymotion
 "	url = https://github.com/Lokaltog/vim-easymotion.git
-"[submodule ".vim/bundle/fugitive"]
-"	path = .vim/bundle/fugitive
 "	url = https://github.com/tpope/vim-fugitive.git
-"[submodule ".vim/bundle/vim-airline"]
-"	path = .vim/bundle/vim-airline
 "	url = https://github.com/bling/vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
 nnoremap ö ,
