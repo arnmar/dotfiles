@@ -34,6 +34,8 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-fugitive.git'
 
 call vundle#end()
 
@@ -109,6 +111,8 @@ inoremap jj <esc>
 
 map <space> /
 map <c-space> ?
+nnoremap <leader>/ :1,$ s//gc<Left><Left><Left>
+
 " Remove search highlighting
 map <leader><space> :noh<cr>
 
