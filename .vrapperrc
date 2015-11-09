@@ -1,0 +1,28 @@
+imap jj <esc> 
+
+map <space> /
+map ,<space> :.,$s//gc<left><left><left>
+map ,r :.,$s/<c-r><c-w>/<c-r>0/gc
+map <A-j> :m .+1<cr>
+map <A-k> :m .-2<cr>
+
+map <C-h> <C-w>h
+map <C-l> <C-w>k
+
+" Select innter of function
+map ,f [[viB
+
+" Next/prev function
+map <C-k> [[(
+map <C-j> ][]](
+
+map ,p "0p
+map ,w vaw"0p
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+map ,tf /false<cr>cwtrue<esc>
+map ,tt /true<cr>cwfalse<esc>
