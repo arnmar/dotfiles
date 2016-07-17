@@ -1,10 +1,12 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set history=700
 
 filetype plugin on
 filetype indent on
+
+set guifont=Lucida_Console:h9
 
 " Auto read when file is changed from the outside
 set autoread
@@ -25,28 +27,21 @@ let g:ctrlp_show_hidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle'
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'valloric/youcompleteme.git'
+"Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
+Plugin 'terryma/vim-smooth-scroll'
 
 call vundle#end()
-
-"	url = https://github.com/scrooloose/nerdtree.git
-"	url = https://github.com/Rip-Rip/clang_complete.git
-"	url = https://github.com/scrooloose/nerdcommenter.git
-"	url = https://github.com/vim-scripts/FuzzyFinder.git
-"	url = https://github.com/vim-scripts/L9.git
-"	url = https://github.com/Lokaltog/vim-easymotion.git
-"	url = https://github.com/tpope/vim-fugitive.git
-"	url = https://github.com/bling/vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
 nnoremap Ã¶ ,
 " => VIM user interface
@@ -90,6 +85,14 @@ colorscheme molokai
 set noswapfile
 set nobackup
 set nowb
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Smooth scroll plugin mappingSmooth scroll plugin mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -171,7 +174,7 @@ let g:clang_complete_patterns=0
 let g:clang_trailing_placeholder=1
 let g:clang_close_preview=1
 
-set listchars=tab:>-,trail:Â·
+set listchars=trail:·,tab:»·
 nmap <silent> <leader>s :set nolist!<CR>
 
 map <leader>bd :Bclose<cr>
