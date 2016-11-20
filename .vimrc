@@ -12,13 +12,13 @@ set guifont=Lucida_Console:h9
 set autoread
 
 " Auto source vimrc when changed
-autocmd bufwritepost $MYVIMRC source $MYVIMRC 
+" autocmd bufwritepost $MYVIMRC source $MYVIMRC 
 
-let mapleader=","
+let mapleader="\<Space>"
 
 " Auto source .vimrc when saved
 au! BufWritePost .vimrc source %
-
+ 
 "Airline
 let g:airline_powerline_fonts = 1
 
@@ -30,13 +30,13 @@ let g:ctrlp_show_hidden = 1
 set rtp+=~/.vim/bundle/Vundle
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
 "Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter.git'
+"Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'terryma/vim-smooth-scroll'
@@ -112,8 +112,6 @@ noremap <leader><leader> <C-^>
 " Map jj for easier escape 
 inoremap jj <esc>
 
-map <space> /
-map <c-space> ?
 nnoremap <leader>/ :1,$ s//gc<Left><Left><Left>
 
 " Remove search highlighting
@@ -124,6 +122,7 @@ nnoremap Ã– ,
 
 " Easier save
 nnoremap <c-s> :w<cr>
+nnoremap <leader>w :w<cr>
 
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
@@ -151,6 +150,35 @@ nnoremap <M-Up> [c
 nnoremap <M-Left> do
 nnoremap <M-Right> dp
 
+
+function! SwitchSourceHeader()
+    if (expand ("%:e") == "cpp")
+        find %:t:r.h
+    else
+        find %:t:r.cpp
+    endif
+endfunction
+
+nmap <leader>s :call SwitchSourceHeader()<CR>
+
+function! ToggleBoolean()
+    let match_true = search("true", "n", line(".")) 
+    let match_false = search("false", "n", line(".")) 
+    if (match_true > 0)
+        let a = search("true", "", line(".")) 
+        :normal cwfalse
+    endif
+    if (match_false > 0)
+        let a = search("false", "", line(".")) 
+        :normal cwtrue
+    endif
+endfunction
+
+nmap <leader>t :call ToggleBoolean()<CR>
+
+nnoremap <leader>gt :find **/%:t:rTests.cpp<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Clang_complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,8 +202,13 @@ let g:clang_complete_patterns=0
 let g:clang_trailing_placeholder=1
 let g:clang_close_preview=1
 
+<<<<<<< HEAD
 set listchars=trail:·,tab:»·
 nmap <silent> <leader>s :set nolist!<CR>
+=======
+set listchars=tab:>-,trail:Â·
+"nmap <silent> <leader>s :set nolist!<CR>
+>>>>>>> Changed leader and added function for header toggle
 
 map <leader>bd :Bclose<cr>
 
@@ -185,9 +218,6 @@ inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 
 noremap <silent> <C-Tab> :A<cr>
-
-" C-vim leader
-let g:C_MapLeader=','
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
