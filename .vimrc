@@ -32,14 +32,15 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
-"Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
 "Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'terryma/vim-smooth-scroll'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
@@ -87,14 +88,6 @@ set nobackup
 set nowb
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Smooth scroll plugin mappingSmooth scroll plugin mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
@@ -123,11 +116,6 @@ nnoremap Ã– ,
 " Easier save
 nnoremap <c-s> :w<cr>
 nnoremap <leader>w :w<cr>
-
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-h> <c-w>h
-noremap <c-l> <c-w>l
 
 " Move a line of text using alt+jk
 nmap <M-j> mz:m+<cr>`z
@@ -202,13 +190,8 @@ let g:clang_complete_patterns=0
 let g:clang_trailing_placeholder=1
 let g:clang_close_preview=1
 
-<<<<<<< HEAD
-set listchars=trail:·,tab:»·
-nmap <silent> <leader>s :set nolist!<CR>
-=======
 set listchars=tab:>-,trail:Â·
 "nmap <silent> <leader>s :set nolist!<CR>
->>>>>>> Changed leader and added function for header toggle
 
 map <leader>bd :Bclose<cr>
 
