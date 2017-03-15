@@ -9,13 +9,6 @@ map <A-k> :m .-2<cr>
 map <C-h> <C-w>h
 map <C-l> <C-w>k
 
-" Select innter of function
-map ,f [[viB
-
-" Next/prev function
-map <C-k> [[(
-map <C-j> ][]](
-
 map ,p "0p
 map ,w vaw"0p
 
@@ -26,3 +19,28 @@ set smartcase
 
 map ,tf /false<cr>cwtrue<esc>
 map ,tt /true<cr>cwfalse<esc>
+
+nmap s <Plug>(sneak_s)
+nmap S <Plug>(sneak_S)
+
+nmap ; <Plug>(sneak-next)
+nmap , <Plug>(sneak-prev)
+
+vmap s <Plug>(sneak_s)
+vmap Z <Plug>(sneak_S)
+
+vmap ; <Plug>(sneak-next)
+vmap , <Plug>(sneak-prev)
+
+nmap f <Plug>(sneak_f)
+nmap F <Plug>(sneak_F)
+nmap t <Plug>(sneak_t)
+nmap T <Plug>(sneak_T)
+
+vmap f <Plug>(sneak_f)
+vmap F <Plug>(sneak_F)
+vmap t <Plug>(sneak_t)
+vmap T <Plug>(sneak_T)
+
+omap z <Plug>(sneak_s)
+omap Z <Plug>(sneak_S)

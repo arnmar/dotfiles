@@ -14,7 +14,7 @@ set autoread
 " Auto source vimrc when changed
 " autocmd bufwritepost $MYVIMRC source $MYVIMRC 
 
-let mapleader="\<Space>"
+let mapleader=","
 
 " Auto source .vimrc when saved
 au! BufWritePost .vimrc source %
@@ -34,13 +34,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-"Plugin 'valloric/youcompleteme.git'
+Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
+Plugin 'tpoe/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
+Plugin 'alepez/vim-gtest'
+Plugin 'justinmk/vim-sneak'
 
 call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
@@ -86,6 +89,25 @@ colorscheme molokai
 set noswapfile
 set nobackup
 set nowb
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GTest
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gtest#highlight_failing_tests = 1
+augroup GTest
+autocmd FileType cpp nnoremap <silent> <leader>tt :GTestRun<CR>
+autocmd FileType cpp nnoremap <silent> <leader>tu :GTestRunUnderCursor<CR>
+autocmd FileType cpp nnoremap          <leader>tc :GTestCase<space>
+autocmd FileType cpp nnoremap          <leader>tn :GTestName<space>
+autocmd FileType cpp nnoremap <silent> <leader>te :GTestToggleEnabled<CR>
+autocmd FileType cpp nnoremap <silent> ]T         :GTestNext<CR>
+autocmd FileType cpp nnoremap <silent> [T         :GTestPrev<CR>
+autocmd FileType cpp nnoremap <silent> <leader>tf :CtrlPGTest<CR>
+autocmd FileType cpp nnoremap <silent> <leader>tj :GTestJump<CR>
+autocmd FileType cpp nnoremap          <leader>ti :GTestNewTest<CR>i
+augroup END
+
+nnoremap <F7> :Make<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -123,11 +145,6 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`zz
 
-" Fuzzy finder mappings
-nnoremap <silent> <leader>b :FufBuffer<CR>
-nnoremap <silent> <leader>f :FufFile<CR>
-nnoremap <silent> <leader>t :FufCoverageFile<CR>
-
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " Diffs
@@ -162,7 +179,7 @@ function! ToggleBoolean()
     endif
 endfunction
 
-nmap <leader>t :call ToggleBoolean()<CR>
+"nmap <leader>t :call ToggleBoolean()<CR>
 
 nnoremap <leader>gt :find **/%:t:rTests.cpp<CR>
 
