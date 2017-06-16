@@ -6,8 +6,6 @@ set history=700
 filetype plugin on
 filetype indent on
 
-set guifont=Lucida_Console:h9
-
 " Auto read when file is changed from the outside
 set autoread
 
@@ -21,6 +19,7 @@ au! BufWritePost .vimrc source %
  
 "Airline
 let g:airline_powerline_fonts = 1
+set encoding=utf-8
 
 let g:ctrlp_show_hidden = 1
 
@@ -214,8 +213,8 @@ map <leader>bd :Bclose<cr>
 
 map <leader>mt :!make test<cr>:!./test<cr>
 
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
 
 noremap <silent> <C-Tab> :A<cr>
 
