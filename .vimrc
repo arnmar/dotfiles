@@ -16,6 +16,8 @@ let mapleader=","
 
 " Auto source .vimrc when saved
 au! BufWritePost .vimrc source %
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
  
 "Airline
 let g:airline_powerline_fonts = 1
@@ -33,7 +35,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'valloric/youcompleteme.git'
+"Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
@@ -78,7 +80,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable
-colorscheme molokai
+colorscheme zenburn
 "colorscheme skittles_berry
 
 
@@ -178,7 +180,7 @@ function! ToggleBoolean()
     endif
 endfunction
 
-"nmap <leader>t :call ToggleBoolean()<CR>
+nmap <leader>t :call ToggleBoolean()<CR>
 
 nnoremap <leader>gt :find **/%:t:rTests.cpp<CR>
 
@@ -206,9 +208,12 @@ let g:clang_complete_patterns=0
 let g:clang_trailing_placeholder=1
 let g:clang_close_preview=1
 
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:set list
+:match ExtraWhitespace /\s\+$/
 set listchars=tab:>-,trail:·
-"nmap <silent> <leader>s :set nolist!<CR>
-
+nmap <silent> <leader>s :set nolist!<CR>
+    
 map <leader>bd :Bclose<cr>
 
 map <leader>mt :!make test<cr>:!./test<cr>
