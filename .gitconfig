@@ -3,6 +3,7 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr (%cd)%Creset' --abbrev-commit --date=default 
     lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr (%cd)%Creset' --abbrev-commit --date=default  --all
     ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr (%cd) %an%Creset' --abbrev-commit --date=default  --all -30
+    lc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr (%cd) %an%Creset' --abbrev-commit --date=default  -30
     br = branch -av
     ls-unchanged = !git ls-files -v | grep ^[a-z]
 [user]
