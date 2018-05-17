@@ -1,7 +1,7 @@
 alias dk='docker'
 alias dkps='docker ps'
 alias dkpa='docker ps -a'
-alias dk='docker run'
+alias dkr='docker run'
 alias dkR='docker run --rm -ti'
 
 alias dkcR='docker-compose up -d'
