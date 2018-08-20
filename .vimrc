@@ -35,12 +35,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-"Plugin 'valloric/youcompleteme.git'
+Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'tpoe/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 Plugin 'alepez/vim-gtest'
@@ -184,6 +184,14 @@ nmap <leader>t :call ToggleBoolean()<CR>
 
 nnoremap <leader>gt :find **/%:t:rTests.cpp<CR>
 
+nnoremap <F5> : call <SID>compile_and_run()<CR>
+
+function! s:compile_and_run()
+    exec 'w'
+    if &filetype == 'python'
+        exec "Dispatch python %"
+    endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Clang_complete
