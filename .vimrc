@@ -35,9 +35,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'valloric/youcompleteme.git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-dispatch'
@@ -45,6 +45,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/syntastic'
 Plugin 'alepez/vim-gtest'
 Plugin 'justinmk/vim-sneak'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""t
@@ -71,18 +74,19 @@ set incsearch
 set number
 
 set laststatus=2 "Always show the statusbar
-if &term != 'linux'
+if &term != 'linux' && !has('gui_running')
   set t_Co=256 "256 colors
+  set term=xterm
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 syntax enable
 colorscheme zenburn
 "colorscheme skittles_berry
-
+"colorscheme solarized
+"set background=light
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -129,33 +133,6 @@ noremap <leader><leader> <C-^>
 inoremap jj <esc>
 
 nnoremap <leader>/ :1,$ s//gc<Left><Left><Left>
-
-" Remove search highlighting
-map <leader><space> :noh<cr>
-
-nnoremap ö ;
-nnoremap Ö ,
-
-" Easier save
-nnoremap <c-s> :w<cr>
-nnoremap <leader>w :w<cr>
-
-" Move a line of text using alt+jk
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`zz
-
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
-
-" Diffs
-nnoremap <leader>< ]c
-nnoremap <leader>> [c
-nnoremap <M-Down> ]c
-nnoremap <M-Up> [c
-nnoremap <M-Left> do
-nnoremap <M-Right> dp
-
 
 function! SwitchSourceHeader()
     if (expand ("%:e") == "cpp")
@@ -221,7 +198,7 @@ let g:clang_close_preview=1
 :match ExtraWhitespace /\s\+$/
 set listchars=tab:>-,trail:·
 nmap <silent> <leader>s :set nolist!<CR>
-    
+
 map <leader>bd :Bclose<cr>
 
 map <leader>mt :!make test<cr>:!./test<cr>
@@ -252,3 +229,59 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+fun! TrimTrailingWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YCM
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:ctrlp_cmd = 'CtrlPMRU'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MinibufExplorer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:miniBufExplAutoStart = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F12> :YcmCompleter GoTo<CR>
+nnoremap <F11> :YcmCompleter GetDoc<CR>
+
+"
+" Remove search highlighting
+map <leader><space> :noh<cr>
+
+nnoremap ö ;
+nnoremap Ö ,
+
+" Easier save
+nnoremap <c-s> :w<cr>
+nnoremap <leader>w :w<cr>
+
+" Move a line of text using alt+jk
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`zz
+
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" Diffs
+nnoremap <leader>< ]c
+nnoremap <leader>> [c
+nnoremap <M-Down> ]c
+nnoremap <M-Up> [c
+nnoremap <M-Left> do
+nnoremap <M-Right> dp
+
+nmap <silent> <leader>s :FSHere<cr>
+nmap <silent> <leader>S :FSSplitRight<cr>
