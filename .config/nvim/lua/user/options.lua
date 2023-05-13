@@ -7,8 +7,11 @@ vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
-vim.opt.incsearch = true 
+vim.opt.incsearch = true
 vim.opt.laststatus = 2
 vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars.extends = "tab:>-,trail:·"
+vim.opt.completeopt = 'menuone,noselect'
+
+
