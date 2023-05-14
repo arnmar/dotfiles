@@ -12,15 +12,16 @@ else
     require('leap').add_default_mappings()
     require('mini.bracketed').setup()
     require('mini-surround-config')
---    require('mason').setup()
---    require('mason-lspconfig').setup()
-    --require('lspconfig').clangd.setup{}
+    require('mason').setup()
+    require('mason-lspconfig').setup()
+    require('lspconfig-config')
     require('bufferline').setup()
     require('telescope-config')
     require('nvim-tree').setup()
     require('lualine').setup()
     require('indent_blankline-config')
-    --require('treesitter-config')
+    require('cmp-config')
+    require('treesitter-config')
 end
 
 -- User includes

@@ -18,6 +18,18 @@ return require('packer').startup(function(use)
     use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
     use 'flazz/vim-colorschemes'
+    use 'ntpeters/vim-better-whitespace'
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/vim-vsnip-integ' }
+    use { 'neovim/nvim-lspconfig' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'shatur/neovim-tasks' }
+
     use {
         'akinsho/bufferline.nvim', tag = "*",
         requires = 'nvim-tree/nvim-web-devicons'
@@ -49,7 +61,6 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-    use 'ntpeters/vim-better-whitespace'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

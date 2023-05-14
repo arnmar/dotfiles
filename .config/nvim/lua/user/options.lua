@@ -1,5 +1,7 @@
+vim.opt.cmdheight = 1
 vim.opt.expandtab = true --Transform spaces to tabs
 vim.opt.smarttab = true
+vim.opt.smartindent = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.wrap = false
@@ -13,5 +15,6 @@ vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars.extends = "tab:>-,trail:·"
 vim.opt.completeopt = 'menuone,noselect'
-
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
