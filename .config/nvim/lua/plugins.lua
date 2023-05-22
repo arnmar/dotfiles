@@ -19,16 +19,23 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'flazz/vim-colorschemes'
     use 'ntpeters/vim-better-whitespace'
-    use { 'hrsh7th/vim-vsnip' }
-    use { 'hrsh7th/vim-vsnip-integ' }
-    use { 'neovim/nvim-lspconfig' }
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
-    use { 'hrsh7th/nvim-cmp' }
-    use { 'nvim-lua/plenary.nvim' }
-    use { 'shatur/neovim-tasks' }
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'nvim-lua/plenary.nvim'
+    use 'shatur/neovim-tasks'
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     use {
         'akinsho/bufferline.nvim', tag = "*",

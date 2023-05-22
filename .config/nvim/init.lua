@@ -7,6 +7,7 @@ if vim.g.vscode then
     require('leap').add_default_mappings()
     require('mini.bracketed').setup()
     require('mini-surround-config')
+    require('Comment').setup()
 else
     require('plugins')
     require('leap').add_default_mappings()
@@ -22,6 +23,7 @@ else
     require('indent_blankline-config')
     require('cmp-config')
     require('treesitter-config')
+    require('Comment').setup()
 end
 
 -- User includes
