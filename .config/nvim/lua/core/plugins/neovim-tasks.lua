@@ -1,0 +1,3 @@
+return {
+    'shatur/neovim-tasks'
+}
