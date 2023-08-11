@@ -15,8 +15,5 @@ return {
             })
         end,
     },
-    { 'nvim-neotest/neotest-python',
-        config = function()
-        end,
-    }
+    { 'nvim-neotest/neotest-python', config = function() end, }
 }

@@ -7,3 +7,9 @@ vim.keymap.set('n', '<leader>fgb', '<cmd>Telescope git_branches<CR>')
 vim.keymap.set('n', '<leader>fgf', '<cmd>Telescope git_files<CR>')
 vim.keymap.set('n', '<leader>fgc', '<cmd>Telescope git_commits<CR>,')
 vim.keymap.set('n', '<leader>fkm', '<cmd>Telescope keymaps<CR>,')
+
+require('telescope').setup {
+    defaults = {
+        path_display = {"smart"}
+    }
+}
