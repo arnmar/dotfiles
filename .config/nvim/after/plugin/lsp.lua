@@ -1,3 +1,9 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+-- then setup your lsp server as usual
 local lspconfig = require('lspconfig')
 
 lspconfig.pylsp.setup{}
@@ -5,9 +11,8 @@ lspconfig.clangd.setup{}
 lspconfig.lua_ls.setup {
     settings = {
         Lua = {
-            diagnostics = {
-                globals = {'vim'}
-            }
+            diagnostics = { globals = {'vim'} },
+            completion = { callSnippet = "Replace" }
         }
     }
 }

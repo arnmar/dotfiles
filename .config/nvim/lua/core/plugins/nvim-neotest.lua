@@ -10,10 +10,10 @@ return {
                 adapters = {
                     require("neotest-python")({
                         dap = { justMyCode = false },
-                    })
+                    }),
                 },
             })
         end,
     },
-    { 'nvim-neotest/neotest-python', config = function() end, }
+    { 'nvim-neotest/neotest-python', config = function() end, },
 }
