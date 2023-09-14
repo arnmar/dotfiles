@@ -1,5 +1,6 @@
 return {
-    { 'nvim-neotest/neotest',
+    {
+        'nvim-neotest/neotest',
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
@@ -13,7 +14,13 @@ return {
                     }),
                 },
             })
+            vim.keymap.set('n', '<leader>rt', require("neotest").run.run)
         end,
+        cond = not vim.g.vscode
     },
-    { 'nvim-neotest/neotest-python', config = function() end, },
+    {
+        'nvim-neotest/neotest-python',
+        config = function() end,
+        cond = not vim.g.vscode
+    },
 }

@@ -6,5 +6,6 @@ return {
         vim.o.timeoutlen = 300
     end,
     opts = {
-    }
+    },
+    cond = not vim.g.vscode
 }

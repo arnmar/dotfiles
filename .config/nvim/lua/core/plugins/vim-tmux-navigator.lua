@@ -1,1 +1,2 @@
-return { 'christoomey/vim-tmux-navigator' }
+return {}
+-- return { 'christoomey/vim-tmux-navigator' }

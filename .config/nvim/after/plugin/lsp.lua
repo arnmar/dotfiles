@@ -1,3 +1,9 @@
+local has_lspconfig = pcall(require, 'lspconfig')
+if not has_lspconfig then
+    return
+end
+
+
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 require("neodev").setup({
   -- add any options here, or leave empty to use the default settings

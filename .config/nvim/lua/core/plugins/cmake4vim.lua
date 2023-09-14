@@ -1,4 +1,4 @@
 return {
-    'folke/lua-dev.nvim',
+    'ilyachur/cmake4vim',
     cond = not vim.g.vscode
 }

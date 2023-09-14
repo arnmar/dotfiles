@@ -5,4 +5,5 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-cmdline',
+    cond = not vim.g.vscode
 }

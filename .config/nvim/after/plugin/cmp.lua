@@ -1,3 +1,13 @@
+local has_cmp = pcall(require, 'cmp')
+if not has_cmp then
+    return
+end
+
+local has_lspconfig = pcall(require, 'lspconfig')
+if not has_lspconfig then
+    return
+end
+
 local cmp = require'cmp'
 
 cmp.setup({
@@ -20,7 +30,7 @@ cmp.setup({
         -- ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-K>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['C-K'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         -- { name = 'nvim_lua' },

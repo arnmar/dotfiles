@@ -1,3 +1,8 @@
+local has_mason = pcall(require, 'mason')
+if not has_mason then
+    return
+end
+
 require('mason').setup()
 
 require('mason-lspconfig').setup({
