@@ -1,6 +1,6 @@
 return {
     'numToStr/Comment.nvim',
     config = function()
-        require('leap').add_default_mappings()
+        require('Comment').setup()
     end
 }
