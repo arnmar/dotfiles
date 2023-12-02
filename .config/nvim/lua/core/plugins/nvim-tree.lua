@@ -9,5 +9,4 @@ return {
         require("nvim-tree").setup {}
         vim.keymap.set('n', '<F3>', '<cmd>NvimTreeToggle<CR>')
     end,
-    cond = not vim.g.vscode
 }

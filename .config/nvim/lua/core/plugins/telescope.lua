@@ -20,5 +20,4 @@ return {
         }
         require('telescope').load_extension('cmake4vim')
     end,
-    cond = not vim.g.vscode,
 }

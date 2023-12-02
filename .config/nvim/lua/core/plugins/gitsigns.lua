@@ -3,5 +3,4 @@ return {
     config = function()
         require('gitsigns').setup()
     end,
-    cond = not vim.g.vscode
 }

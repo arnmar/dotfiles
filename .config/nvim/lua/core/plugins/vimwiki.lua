@@ -10,5 +10,5 @@ return {
             ext = '.md'
         }}
     end,
-    cond = not vim.g.vscode
+    cond = false
 }

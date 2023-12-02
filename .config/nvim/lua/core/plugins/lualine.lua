@@ -4,5 +4,4 @@ return {
     config = function()
         require('lualine').setup()
     end,
-    cond = not vim.g.vscode
 }

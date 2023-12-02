@@ -23,5 +23,4 @@ return {
           dap_open_command = function() return require('dap').repl.open() end, -- Command to run after starting DAP session. You can set it to `false` if you don't want to open anything or `require('dapui').open` if you are using https://github.com/rcarriga/nvim-dap-ui
     })
     end,
-    cond = not vim.g.vscode
 }

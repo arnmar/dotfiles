@@ -1,4 +1,1 @@
-return {
-    'folke/lua-dev.nvim',
-    cond = not vim.g.vscode
-}
+return { 'folke/lua-dev.nvim' }

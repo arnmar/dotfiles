@@ -1,4 +1,1 @@
-return {
-    'tpope/vim-fugitive',
-    cond = not vim.g.vscode
-}
+return { 'tpope/vim-fugitive' }

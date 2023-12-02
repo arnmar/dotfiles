@@ -20,7 +20,5 @@ return {
     },
     {
         'nvim-neotest/neotest-python',
-        config = function() end,
-        cond = not vim.g.vscode
     },
 }

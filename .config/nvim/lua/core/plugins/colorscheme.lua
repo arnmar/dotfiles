@@ -1,3 +1,3 @@
 return {
-    {'EdenEast/nightfox.nvim', cond = not vim.g.vscode},
+    {'EdenEast/nightfox.nvim'}
 }

@@ -7,5 +7,4 @@ return {
     end,
     opts = {
     },
-    cond = not vim.g.vscode
 }
