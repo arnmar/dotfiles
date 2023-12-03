@@ -12,6 +12,7 @@ return {
                     require("neotest-python")({
                         dap = { justMyCode = false },
                     }),
+                    require("neotest-vim-test")({ ignore_filetypes = { "python", "lua" } }),
                 },
             })
             vim.keymap.set('n', '<leader>rt', require("neotest").run.run)
@@ -20,5 +21,7 @@ return {
     },
     {
         'nvim-neotest/neotest-python',
+        'nvim-neotest/neotest-vim-test',
+        'vim-test/vim-test'
     },
 }

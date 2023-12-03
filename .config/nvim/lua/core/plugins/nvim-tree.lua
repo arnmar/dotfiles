@@ -7,6 +7,7 @@ return {
     },
     config = function()
         require("nvim-tree").setup {}
-        vim.keymap.set('n', '<F3>', '<cmd>NvimTreeToggle<CR>')
+        -- vim.keymap.set('n', '<F3>', '<cmd>NvimTreeToggle<CR>')
+        vim.keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<CR>')
     end,
 }
