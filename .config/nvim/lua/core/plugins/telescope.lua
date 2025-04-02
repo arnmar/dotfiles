@@ -19,5 +19,6 @@ return {
             }
         }
         require('telescope').load_extension('cmake4vim')
+        require('telescope').load_extension('lazygit')
     end,
 }
