@@ -123,7 +123,9 @@ fi
 
 export EDITOR=vim
 
-source .secrets
+if [ -e ~/.secrets ]; then
+    source ~/.secrets
+fi
 
 export WINIP=$(ip route | awk '/default via / {print $3; exit}' 2>/dev/null)
 
