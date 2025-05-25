@@ -137,6 +137,7 @@ export FZF_CTRL_T_OPTS="--height 60%"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load autojump
-. /usr/share/autojump/autojump.sh
+#[[ -s /home/marcus/.autojump/etc/profile.d/autojump.sh ]] && source /home/marcus/.autojump/etc/profile.d/autojump.sh
+#autoload -U compinit && compinit -u
 
 bindkey -v
