@@ -7,8 +7,7 @@
     br = branch -av
     ls-unchanged = !git ls-files -v | grep ^[a-z]
 [user]
-	name = Marcus\n
-	email = m@m
+	name = Marcus
 [color]
 	ui = on
 [diff]
