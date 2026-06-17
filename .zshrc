@@ -1,14 +1,15 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,74 +71,46 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker-compose docker vi-mode)
+plugins=(git docker-compose docker vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 VI_MODE_SET_CURSOR=true
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias sudo='sudo '
-alias conPS='picocom -b 57600 -f n --imap lfcrlf --omap crcrlf /dev/ttyUSB0'
-alias conWFHMI='picocom -b 115200 -f n --imap lfcrlf --omap crcrlf /dev/ttyUSB0'
-alias lgit='lazygit'
-
-alias ls='exa --icons'
-alias cat='batcat'
-alias find='fdfind'
-alias grep='rg'
-alias lstr='exa --tree --level 2'
-
-# Start Docker daemon automatically when logging in if not running.' >> ~/.zshrc
-# RUNNING=`ps aux | grep dockerd | grep -v grep`
-RUNNING=`ps aux | grep dockerd | grep -v rg`
-if [ -z "$RUNNING" ]; then
-    sudo dockerd > /dev/null 2>&1 &
-    disown
-fi
-
-export EDITOR=vim
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 if [ -e ~/.secrets ]; then
     source ~/.secrets
 fi
 
-export WINIP=$(ip route | awk '/default via / {print $3; exit}' 2>/dev/null)
-
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
-export FZF_DEFAULT_OPTS="--preview 'batcat --color=always {}'"
-export FZF_CTRL_T_OPTS="--height 60%"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load autojump
-#[[ -s /home/marcus/.autojump/etc/profile.d/autojump.sh ]] && source /home/marcus/.autojump/etc/profile.d/autojump.sh
-#autoload -U compinit && compinit -u
-
 bindkey -v
+
+eval "$(zoxide init zsh)"
+
+source <(fzf --zsh)
+
+source ~/.config/zsh/aliases.zsh
+[ -f ~/.zsh_aliases_private ] && source ~/.zsh_aliases_private
+
+fastfetch -c /home/marcusa/.config/fastfetch/config.jsonc
