@@ -1,6 +1,11 @@
 return {
   {
-    "edeneast/nightfox.nvim",
+    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    -- "ellisonleao/gruvbox.nvim",
+    -- "slugbyte/lackluster.nvim",
+    -- "zenbones-theme/zenbones.nvim",
+    -- "edeneast/nightfox.nvim",
     -- "rebelot/kanagawa.nvim",
     -- "sainnhe/everforest",
     -- config = function()
@@ -10,7 +15,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfox",
+      -- colorscheme = "neobones",
+      colorscheme = "catppuccin-frappe"
     },
   },
 }
