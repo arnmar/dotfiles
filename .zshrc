@@ -4,6 +4,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR=nvim
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -113,4 +115,4 @@ source <(fzf --zsh)
 source ~/.config/zsh/aliases.zsh
 [ -f ~/.zsh_aliases_private ] && source ~/.zsh_aliases_private
 
-fastfetch -c /home/marcusa/.config/fastfetch/config.jsonc
+fastfetch -c $HOME/.config/fastfetch/config.jsonc
